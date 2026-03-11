@@ -135,8 +135,8 @@ services:
     image: postgres:15
     restart: always
     environment:
-      POSTGRES_USER: n8n
-      POSTGRES_PASSWORD: n8npassword
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: Testing.123
       POSTGRES_DB: n8n
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -150,20 +150,27 @@ services:
       DB_TYPE: postgresdb
       DB_POSTGRESDB_HOST: postgres
       DB_POSTGRESDB_DATABASE: n8n
-      DB_POSTGRESDB_USER: n8n
-      DB_POSTGRESDB_PASSWORD: n8npassword
-      N8N_HOST: localhost
+      DB_POSTGRESDB_USER: root
+      DB_POSTGRESDB_PASSWORD: Testing.123
       N8N_PORT: 5678
-      N8N_PROTOCOL: http
-      WEBHOOK_URL: http://localhost:5678
+      N8N_PROTOCOL: https
+      WEBHOOK_URL: https://bonzer-nanci-gablelike.ngrok-free.dev
+      N8N_EMAIL_MODE: smtp
+      N8N_SMTP_HOST: smtp.gmail.com
+      N8N_SMTP_PORT: 587
+      N8N_SMTP_USER: 
+      N8N_SMTP_PASS: 
+      N8N_SMTP_SENDER: 
+      N8N_SMTP_SSL: "false"
+      N8N_SMTP_TLS: "true"
     volumes:
       - n8n_data:/home/node/.n8n
     depends_on:
       - postgres
 
 volumes:
-  postgres_data:
   n8n_data:
+  postgres_data:
 ```
 
 ---
