@@ -146,6 +146,9 @@ services:
     restart: always
     ports:
       - "5678:5678"
+    dns:
+      - "8.8.8.8"
+      - "8.8.4.4"
     environment:
       DB_TYPE: postgresdb
       DB_POSTGRESDB_HOST: postgres
